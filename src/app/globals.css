@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* Apply the default body text color from the style guide */
+    @apply text-text-body bg-white;
+    /* Font family is handled by Tailwind config (font-sans) */
+  }
+
+  /* Apply heading styles using Tailwind utilities in components, e.g., text-3xl font-bold */
+  /* Avoid defining base heading styles here to maintain utility-first approach */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text-title font-bold;
+  }
+
+  /* Add subtle transitions to links */
+  a {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+}
+
+@layer components {
+  /* Base button style with transitions */
+  .btn {
+    @apply px-6 py-3 rounded-lg shadow-md font-bold text-center transition-all duration-300 ease-in-out;
+  }
+  .btn:hover {
+    @apply shadow-lg transform scale-[1.02]; /* Added slight scale */
+  }
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50 shadow-none transform-none; /* Reset transform */
+  }
+
+  /* Primary Button Style */
+  .btn-primary {
+    @apply btn bg-primary text-white;
+  }
+  .btn-primary:hover {
+    @apply bg-primary-hover;
+  }
+  .btn-primary:disabled {
+    @apply bg-primary opacity-50;
+  }
+
+  /* Secondary Button Style (Example - adjust as needed) */
+  .btn-secondary {
+    @apply btn bg-secondary text-onSecondary;
+  }
+  .btn-secondary:hover {
+    @apply bg-gray-700; /* Example hover */
+  }
+
+  /* Tertiary Button Style (Example - for use on dark backgrounds) */
+  .btn-tertiary {
+    @apply btn bg-white text-primary;
+  }
+  .btn-tertiary:hover {
+    @apply bg-tertiary-hover;
+  }
+
+  /* Card base style */
+  .card {
+    @apply bg-white rounded-lg shadow-md border border-stroke-1 overflow-hidden transition-all duration-300 ease-in-out; /* Changed transition target */
+  }
+  .card:hover {
+    @apply shadow-lg transform scale-[1.03]; /* Added slight scale */
+  }
+
+  /* Interactive Icon Style */
+  .icon-interactive {
+      @apply transition-all duration-300 ease-in-out;
+  }
+  .icon-interactive:hover {
+      @apply transform scale-110 text-primary-hover; /* Example: scale and color change */
+  }
+}
+

@@ -1,0 +1,10 @@
+# Allow all user agents
+User-agent: *
+Allow: /
+
+# Disallow crawling of Next.js build artifacts
+Disallow: /_next/
+
+# Sitemap location (optional, but good practice)
+# Sitemap: https://[YOUR_DOMAIN]/sitemap.xml
+
