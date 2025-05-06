@@ -95,7 +95,7 @@ export default function HomePage() {
           <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">Ready to Explore Your Options?</h2>
           {/* Text Style: text-base text-text-body */}
           <p className="text-base text-text-body mb-8 leading-relaxed">
-            Whether you're considering a sale now or evaluating future steps, our team is here to guide you through the M&A process.
+            Whether you&apos;re considering a sale now or evaluating future steps, our team is here to guide you through the M&A process.
           </p>
           {/* Button Style: Use btn-primary class */}
           <Link href="/contact-us" legacyBehavior>
