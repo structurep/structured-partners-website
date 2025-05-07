@@ -27,7 +27,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center py-20 md:py-28 flex items-center justify-center text-center"
-        style={{ backgroundImage: "url("/images/hero-background.png")" }}
+        style={{ backgroundImage: "url(\"/images/hero-background.png\")" }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-10 p-4 max-w-4xl mx-auto text-tertiary">
