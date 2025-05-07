@@ -18,13 +18,12 @@ type ToasterToast = ToastProps & {
   action?: ToastActionElement
 }
 
-// Removed actionTypes constant as it was causing a lint error and can be inlined.
-// const actionTypes = {
-//   ADD_TOAST: "ADD_TOAST",
-//   UPDATE_TOAST: "UPDATE_TOAST",
-//   DISMISS_TOAST: "DISMISS_TOAST",
-//   REMOVE_TOAST: "REMOVE_TOAST",
-// } as const
+const actionTypes = {
+  ADD_TOAST: "ADD_TOAST",
+  UPDATE_TOAST: "UPDATE_TOAST",
+  DISMISS_TOAST: "DISMISS_TOAST",
+  REMOVE_TOAST: "REMOVE_TOAST",
+} as const
 
 let count = 0
 
@@ -33,24 +32,23 @@ function genId() {
   return count.toString()
 }
 
-// Removed ActionType type alias as actionTypes constant is removed.
-// type ActionType = typeof actionTypes
+type ActionType = typeof actionTypes
 
 type Action =
   | {
-      type: "ADD_TOAST" // Inlined string literal
+      type: ActionType["ADD_TOAST"]
       toast: ToasterToast
     }
   | {
-      type: "UPDATE_TOAST" // Inlined string literal
+      type: ActionType["UPDATE_TOAST"]
       toast: Partial<ToasterToast>
     }
   | {
-      type: "DISMISS_TOAST" // Inlined string literal
+      type: ActionType["DISMISS_TOAST"]
       toastId?: ToasterToast["id"]
     }
   | {
-      type: "REMOVE_TOAST" // Inlined string literal
+      type: ActionType["REMOVE_TOAST"]
       toastId?: ToasterToast["id"]
     }
 
@@ -194,4 +192,3 @@ function useToast() {
 }
 
 export { useToast, toast }
-

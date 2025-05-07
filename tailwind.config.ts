@@ -9,47 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // Add Advent Pro using the CSS variable defined in layout.tsx
-        sans: ["var(--font-advent-pro)", "sans-serif"],
+        // Set Inter as the default sans-serif font using the CSS variable from layout.tsx
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"], // Added system-ui as a fallback
       },
       colors: {
-        // Brand Colors from Style Guide / Tech Plan
+        // Brand Colors from the new Brief
         primary: {
-          DEFAULT: "#E35F4F", // Primary
-          hover: "#EF877A",   // Primary Hover
-          // active: "#CF4433", // Assuming active state if needed
-          // subtle: "#FCE7E4", // Assuming subtle state if needed
+          DEFAULT: "#E35F4F", // Primary color from brief
+          hover: "#EF877A",   // Primary Hover color from brief
         },
         secondary: {
-          DEFAULT: "#050505", // Secondary
-          // hover: "#171717", // Assuming hover state if needed
-          // active: "#0A0A0A", // Assuming active state if needed
+          DEFAULT: "#050505", 
         },
         tertiary: {
-          DEFAULT: "#F2F2F2", // Tertiary (from previous style guide, useful for backgrounds/text)
+          DEFAULT: "#F2F2F2", 
           hover: "#FAFAFA",
           active: "#E6E6E6",
           subtle: "#FAFAFA",
           strong: "#A5A5A5",
           disabled: "rgba(242, 242, 242, 0.5)",
         },
-        // Text Colors from Style Guide
         text: {
           title: "#000000",
           body: "#454545",
           subtle: "#5D5D5D",
           caption: "#888888",
-          // Add contrast text colors if needed
-          onPrimary: "#FFFFFF", // White text on primary bg
-          onSecondary: "#FFFFFF", // White text on secondary bg
+          onPrimary: "#FFFFFF", 
+          onSecondary: "#FFFFFF", 
         },
-        // Background Colors from Style Guide
         background: {
           1: "#F6F6F6",
           2: "#E7E7E7",
           3: "#D1D1D1",
         },
-        // Stroke Colors from Style Guide
         stroke: {
           1: "#E7E7E7",
           2: "#F6F6F6",
@@ -57,20 +49,20 @@ const config: Config = {
         },
       },
       borderRadius: {
-        // Corner Radius from Tech Plan (8px)
         sm: "2px",
         md: "4px",
-        DEFAULT: "8px", // Default for cards/buttons
-        lg: "8px", // Explicitly match default
-        xl: "16px", // For modals
-        full: "999px", // Round
+        DEFAULT: "8px", 
+        lg: "8px", 
+        xl: "16px", 
+        full: "999px", 
       },
       boxShadow: {
-        // Shadows from Tech Plan
-        sm: "0 0 4px 0 rgba(0, 0, 0, 0.1)",
-        md: "0 0 8px 0 rgba(0, 0, 0, 0.2)", // Default shadow
-        lg: "0 0 16px 0 rgba(0, 0, 0, 0.3)", // Hover shadow
-        DEFAULT: "0 0 8px 0 rgba(0, 0, 0, 0.2)", // Set default shadow
+        // Standard shadows, brief mentions applying shadow-md and hover:shadow-lg
+        sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)", // Tailwind default sm
+        DEFAULT: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)", // Tailwind default
+        md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", // Tailwind default md
+        lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)", // Tailwind default lg
+        xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)", // Tailwind default xl
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

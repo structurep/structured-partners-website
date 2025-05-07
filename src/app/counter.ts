@@ -1,7 +1,6 @@
-
 'use server'
 // import { getCloudflareContext } from '@opennextjs/cloudflare'
-// import { headers } from 'next/headers' // Removed unused headers import
+import { headers } from 'next/headers'
 import { cookies } from 'next/headers'
 
 /**
@@ -18,7 +17,7 @@ import { cookies } from 'next/headers'
  */
 export async function incrementAndLog() {
   // const cf = await getCloudflareContext()
-  // const headersList = headers() // Removed unused variable assignment
+  const headersList = headers()
   const cookieStore = await cookies()
 
   // Get current count from cookie or start at 0
@@ -103,4 +102,3 @@ export async function getStats() {
     recentAccess: recentAccessList
   }
 }
-

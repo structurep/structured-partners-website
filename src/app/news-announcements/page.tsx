@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-// import Image from "next/image"; // Removed unused Image import
+import Image from "next/image";
 import Script from "next/script";
 
 export const metadata: Metadata = {

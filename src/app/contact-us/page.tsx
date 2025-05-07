@@ -1,3 +1,4 @@
+
 // Add "use client" directive because useState is used for form handling
 // MUST be the very first line
 "use client";
@@ -7,7 +8,7 @@
 // import { Metadata } from "next"; // No longer needed here
 import { Phone, Mail, MapPin, Loader2, CheckCircle } from "lucide-react";
 import { useState } from "react";
-// import Link from "next/link"; // Removed unused Link import
+import Link from "next/link";
 
 export default function ContactUsPage() {
   const email = "info@structuredpartners.com";

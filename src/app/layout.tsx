@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
-// Import Advent Pro font from Google Fonts
-import { Advent_Pro } from "next/font/google";
+// Import Inter font from Google Fonts
+import { Inter } from "next/font/google"; // Changed from Advent_Pro to Inter
 import Script from 'next/script';
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-// import MobileCTA from "@/components/MobileCTA"; // Previous mobile CTA (replaced)
-import StickyCTA from "@/components/StickyCTA"; // New sticky CTA
-import CookieConsentBanner from "@/components/CookieConsentBanner"; // Import the banner
+import StickyCTA from "@/components/StickyCTA";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
-// Configure Advent Pro font
-const advent_pro = Advent_Pro({
+// Configure Inter font
+const inter = Inter({ // Changed from advent_pro to inter
   subsets: ["latin"],
-  weight: ["400", "700"], // Include weights specified in style guide
-  variable: "--font-advent-pro", // Use CSS variable
+  weight: ["400", "500", "600", "700"], // Updated weights 400-700
+  variable: "--font-inter", // Changed CSS variable name
+  display: 'swap', // Added display swap for better font loading
 });
 
 // Define LocalBusiness Schema (more specific than Organization)
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness", // Changed from Organization to LocalBusiness
+  "@type": "LocalBusiness",
   "name": "Structured Partners",
-  "url": "https://thvcdobe.manus.space", // Use actual live URL when available
-  "logo": "https://thvcdobe.manus.space/logo.svg", // Use actual live URL when available
-  "image": "https://thvcdobe.manus.space/og-default.jpg", // Add a default image URL if available
+  "url": "https://struct-part.netlify.app", // Updated with live URL
+  "logo": "https://struct-part.netlify.app/logo.svg", // Updated with live URL
+  "image": "https://struct-part.netlify.app/images/opengraph-twitter-preview.png", // Updated with new OG image
   "description": "Expert M&A advisory exclusively for the building products and services sector.",
   "telephone": "+1-727-761-1644",
   "email": "info@structuredpartners.com",
@@ -32,16 +32,12 @@ const localBusinessSchema = {
     "addressLocality": "St Petersburg",
     "addressRegion": "FL",
     "addressCountry": "US"
-    // Add streetAddress and postalCode if available
   },
   "areaServed": {
     "@type": "Country",
     "name": "US"
   },
-  "sameAs": [
-    // Add URLs to social media profiles if available
-    // "https://www.linkedin.com/company/your-linkedin-page"
-  ]
+  "sameAs": []
 };
 
 export const metadata: Metadata = {
@@ -53,15 +49,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Structured Partners - M&A Advisory for Building Products & Services",
     description: "Expert M&A advisory exclusively for the building products and services sector.",
-    url: "https://thvcdobe.manus.space", // Use actual live URL when available
+    url: "https://struct-part.netlify.app", // Updated with live URL
     siteName: "Structured Partners",
-    // images: [
-    //   {
-    //     url: "https://thvcdobe.manus.space/og-default.jpg", // Default OG image URL (Requires image)
-    //     width: 1200,
-    //     height: 630,
-    //   },
-    // ],
+    images: [
+      {
+        url: "https://struct-part.netlify.app/images/opengraph-twitter-preview.png", // Updated with new OG image
+        width: 1200, // Assuming standard OG image dimensions
+        height: 630,
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
@@ -69,8 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Structured Partners - M&A Advisory for Building Products & Services",
     description: "Expert M&A advisory exclusively for the building products and services sector.",
-    // Add Twitter handle if available: site: "@YourTwitterHandle",
-    // Add default Twitter image URL: images: ["https://thvcdobe.manus.space/twitter-default.jpg"], // (Requires image)
+    images: ["https://struct-part.netlify.app/images/opengraph-twitter-preview.png"], // Updated with new Twitter image
   },
 };
 
@@ -80,8 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Apply the font variable to the html tag
-    <html lang="en" className={`${advent_pro.variable}`}>
+    <html lang="en" className={`${inter.variable} font-sans`}> {/* Apply Inter font variable and fallback to font-sans */}
       <head>
         <Script
           id="localbusiness-schema"
@@ -89,17 +83,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      {/* Apply the font class to the body tag */}
-      {/* Add pb-16 for padding below sticky CTA on mobile, remove on lg+ */}
-      {/* Add extra padding bottom if cookie banner is visible */}
-      <body className={`font-sans flex flex-col min-h-screen pb-16 lg:pb-0`}>
+      <body className={`flex flex-col min-h-screen pb-16 lg:pb-0`}>
         <Header />
         <main className="flex-grow">
           {children}
         </main>
         <Footer />
-        <StickyCTA /> {/* Add the new Sticky CTA */}
-        <CookieConsentBanner /> {/* Add the Cookie Consent Banner */}
+        <StickyCTA />
+        <CookieConsentBanner />
       </body>
     </html>
   );
